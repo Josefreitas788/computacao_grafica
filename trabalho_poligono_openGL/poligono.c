@@ -7,7 +7,6 @@ GLfloat angle = 0.0f;
 GLfloat fakeNULL;
 GLfloat *pX = &fakeNULL;
 GLfloat *pY = &fakeNULL;
-GLfloat mirror = 1.0f;
 
 void Inicializa(void)
 {
@@ -50,7 +49,7 @@ void DesenhaCasa(void)
   glPushMatrix();
   glTranslatef(x, y, 0.0f);
   glRotatef(angle, 0.0f, 0.0f, 1.0f);
-  glScalef(scale, scale, 1.0f*(mirror));
+  glScalef(scale, scale, 1.0f);
   poligono();
   glPopMatrix();
 
@@ -93,7 +92,7 @@ void TeclasNormais(unsigned char key, int X, int Y)
     pX = &fakeNULL;
     break;
   case 'm':
-    mirror *= -1.0f;
+    scale *= -1;
     break;
   case 'i':
     glLoadIdentity();
